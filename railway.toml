@@ -1,0 +1,8 @@
+# Railway: Settings → Root Directory = whatsapp-bot (folder-kan)
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "npm start"
+restartPolicyType = "ALWAYS"
+restartPolicyMaxRetries = 10

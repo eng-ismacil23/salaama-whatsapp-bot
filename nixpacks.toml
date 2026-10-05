@@ -1,9 +1,18 @@
-[providers]
-  node = true
+# https://nixpacks.com/docs/configuration/file
+providers = ["node"]
 
 [phases.setup]
-  nixPkgs = ["...", "chromium", "nss", "freetype", "harfbuzz", "ttf-freefont"]
+nixPkgs = ["...", "chromium", "nss", "freetype", "harfbuzz", "fontconfig", "liberation_ttf"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[start]
+cmd = "npm start"
 
 [variables]
-  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
-  PUPPETEER_EXECUTABLE_PATH = "/nix/var/nix/profiles/default/bin/chromium"
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+PUPPETEER_EXECUTABLE_PATH = "/nix/var/nix/profiles/default/bin/chromium"
+NODE_ENV = "production"
+FONTCONFIG_FILE = "/nix/var/nix/profiles/default/etc/fonts/fonts.conf"
+FONTCONFIG_PATH = "/nix/var/nix/profiles/default/etc/fonts"
